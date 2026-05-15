@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilda dos Aventureiros - Página Principal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Cabeçalho com Menu Hambúrguer -->
+    <header id="header">
+        <div id="menu-hamburger" onclick="toggleMenu()">
+            <p>☰ Menu</p>
+        </div>
+        
+        <!-- Menu Lateral -->
+        <nav id="sidebar-menu" style="display: none;">
+            <ul>
+                <li><a href="#" onclick="openSettings()">Configurações</a></li>
+                <li><a href="#" onclick="logout()">Desconectar</a></li>
+                <li><a href="#" onclick="goHome()">Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Logo Preto Pequeno -->
+    <div id="logo-section">
+        <div id="logo">
+            [LOGO GILDA DOS AVENTUREIROS]
+        </div>
+    </div>
+
+    <!-- Criadores/Donos (pequeno e fraco) -->
+    <div id="creators-info">
+        <p>Criado por: [Nomes dos criadores aqui]</p>
+    </div>
+
+    <!-- Personagem Introdutor (Chefe da Guilda) -->
+    <div id="intro-character" style="display: block;">
+        <div id="character-box">
+            <h2>[Personagem - Chefe da Guilda]</h2>
+            <p id="welcome-message">
+                Bem-vindo, aventureiro. Sua jornada começa agora em nossa Guilda dos Aventureiros.
+            </p>
+        </div>
+        <button id="skip-intro" onclick="skipIntro()">Pular Introdução</button>
+    </div>
+
+    <!-- Conteúdo Principal (fica oculto durante introdução) -->
+    <div id="main-content" style="display: none;">
+        <h1>Painel Principal</h1>
+        <p>Seu papel: <span id="user-role"></span></p>
+        <p>Bem-vindo, aventureiro! Comece sua jornada aqui.</p>
+    </div>
+
+    <!-- Anúncio Fixo Inferior (não desaparece) -->
+    <div id="fixed-ad-bottom">
+        <p>[ANÚNCIO FIXO - Espaço reservado para publicidade]</p>
+    </div>
+
+    <!-- Detectar AdBlock -->
+    <div id="adblock-warning" style="display: none;">
+        <p>Parece que você está usando um bloqueador de anúncios. Por favor, considere desativá-lo para suportar nosso site.</p>
+    </div>
+
+    <!-- Botão Toggle de Tema -->
+    <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

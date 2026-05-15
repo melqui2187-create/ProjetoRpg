@@ -1,0 +1,720 @@
+/* ==================== VARIÁVEIS E RESET ====================*/
+
+:root {
+    --primary-dark: #1a1a1a;
+    --primary-light: #ffffff;
+    --accent-red: #cc0000;
+    --accent-purple: #663399;
+    --accent-purple-dark: #330066;
+    --text-dark: #000000;
+    --text-light: #ffffff;
+    --border-thin: 2px;
+    --bg-dark-lighter: #2a2a2a;
+    --bg-light-dark: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==================== TEMA ESCURO (PADRÃO) ====================*/
+
+body.dark-theme {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+}
+
+body.dark-theme * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ==================== TEMA CLARO ====================*/
+
+body.light-theme {
+    background-color: var(--primary-light);
+    color: var(--text-dark);
+}
+
+/* ==================== HEADER E NAVEGAÇÃO ====================*/
+
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.dark-theme header {
+    background-color: var(--primary-dark);
+    border-bottom: var(--border-thin) solid var(--accent-red);
+}
+
+.light-theme header {
+    background-color: var(--primary-light);
+    border-bottom: var(--border-thin) solid var(--accent-purple);
+}
+
+/* ==================== MENU HAMBÚRGUER ====================*/
+
+#menu-hamburger {
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px 15px;
+    user-select: none;
+}
+
+.dark-theme #menu-hamburger {
+    background-color: var(--bg-dark-lighter);
+    color: var(--text-light);
+    border: var(--border-thin) solid var(--accent-red);
+}
+
+.light-theme #menu-hamburger {
+    background-color: #f0f0f0;
+    color: var(--text-dark);
+    border: var(--border-thin) solid var(--accent-purple);
+}
+
+#menu-hamburger:hover {
+    opacity: 0.8;
+}
+
+/* ==================== MENU LATERAL ====================*/
+
+#sidebar-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 1000;
+    padding-top: 80px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+#sidebar-menu.active {
+    transform: translateX(0);
+}
+
+.dark-theme #sidebar-menu {
+    background-color: var(--primary-dark);
+    border-right: var(--border-thin) solid var(--accent-red);
+}
+
+.light-theme #sidebar-menu {
+    background-color: var(--primary-light);
+    border-right: var(--border-thin) solid var(--accent-purple);
+}
+
+#sidebar-menu ul {
+    list-style: none;
+}
+
+#sidebar-menu li {
+    border-bottom: 1px solid rgba(100,100,100,0.2);
+}
+
+#sidebar-menu a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dark-theme #sidebar-menu a {
+    color: var(--text-light);
+}
+
+.dark-theme #sidebar-menu a:hover {
+    background-color: var(--bg-dark-lighter);
+    border-left: 3px solid var(--accent-red);
+}
+
+.light-theme #sidebar-menu a {
+    color: var(--text-dark);
+}
+
+.light-theme #sidebar-menu a:hover {
+    background-color: #f0f0f0;
+    border-left: 3px solid var(--accent-purple);
+}
+
+/* ==================== LOGO E SEÇÃO DE LOGO ====================*/
+
+#logo-section {
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+}
+
+#logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.dark-theme #logo {
+    color: var(--text-light);
+    border: var(--border-thin) solid var(--accent-red);
+    padding: 20px;
+    background-color: rgba(200, 0, 0, 0.1);
+}
+
+.light-theme #logo {
+    color: var(--text-dark);
+    border: var(--border-thin) solid var(--accent-purple);
+    padding: 20px;
+    background-color: rgba(102, 51, 153, 0.1);
+}
+
+/* ==================== CRIADORES/DONOS ====================*/
+
+#creators-info {
+    text-align: center;
+    padding: 15px;
+    font-size: 11px;
+    opacity: 0.3;
+    animation: slideCreators 5s ease-in-out forwards;
+}
+
+@keyframes slideCreators {
+    0% {
+        opacity: 0.3;
+        transform: translateX(100%);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+.dark-theme #creators-info {
+    color: var(--text-light);
+}
+
+.light-theme #creators-info {
+    color: var(--text-dark);
+}
+
+/* ==================== PERSONAGEM INTRODUTOR ====================*/
+
+#intro-character {
+    text-align: center;
+    padding: 40px 20px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#character-box {
+    margin-bottom: 30px;
+    padding: 30px;
+    animation: fadeIn 0.8s ease-in;
+}
+
+.dark-theme #character-box {
+    border: var(--border-thin) solid var(--accent-red);
+    background-color: rgba(200, 0, 0, 0.05);
+    color: var(--text-light);
+}
+
+.light-theme #character-box {
+    border: var(--border-thin) solid var(--accent-purple);
+    background-color: rgba(102, 51, 153, 0.05);
+    color: var(--text-dark);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#welcome-message {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+#skip-intro {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+.dark-theme #skip-intro {
+    background-color: var(--accent-purple-dark);
+    color: var(--text-light);
+    border: var(--border-thin) solid var(--accent-red);
+}
+
+.dark-theme #skip-intro:hover {
+    background-color: var(--accent-purple);
+}
+
+.light-theme #skip-intro {
+    background-color: var(--accent-purple);
+    color: var(--text-light);
+    border: var(--border-thin) solid var(--accent-purple);
+}
+
+.light-theme #skip-intro:hover {
+    background-color: var(--accent-purple-dark);
+}
+
+/* ==================== CONTEÚDO PRINCIPAL ====================*/
+
+#main-content {
+    padding: 30px 20px;
+}
+
+.dark-theme #main-content {
+    color: var(--text-light);
+}
+
+.light-theme #main-content {
+    color: var(--text-dark);
+}
+
+#main-content h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+#main-content p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* ==================== SELEÇÃO DE PAPEL ====================*/
+
+#role-selection-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+#role-selection-container h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+#role-selection-container > p:first-of-type {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#role-selection-container > p:last-of-type {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: 40px;
+}
+
+#role-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.role-box {
+    width: 200px;
+    height: 180px;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.dark-theme .role-box {
+    background-color: var(--accent-purple-dark);
+    color: var(--text-light);
+    border: var(--border-thin) solid var(--accent-purple);
+}
+
+.dark-theme .role-box:hover {
+    background-color: var(--accent-purple);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(102, 51, 153, 0.5);
+}
+
+.light-theme .role-box {
+    background-color: #f5f5f5;
+    color: var(--text-dark);
+    border: var(--border-thin) solid var(--accent-purple);
+}
+
+.light-theme .role-box:hover {
+    background-color: #e8e8ff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(102, 51, 153, 0.3);
+}
+
+.role-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.role-box p {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* ==================== CONFIGURAÇÕES ====================*/
+
+#login-section, #vip-section, #user-settings {
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.dark-theme #login-section,
+.dark-theme #vip-section,
+.dark-theme #user-settings {
+    border: 1px solid rgba(200, 100, 100, 0.3);
+    background-color: rgba(200, 0, 0, 0.03);
+}
+
+.light-theme #login-section,
+.light-theme #vip-section,
+.light-theme #user-settings {
+    border: var(--border-thin) solid var(--accent-purple);
+    background-color: rgba(102, 51, 153, 0.05);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* ==================== FORMULÁRIOS ====================*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="checkbox"] {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    font-size: 14px;
+}
+
+.dark-theme input[type="text"],
+.dark-theme input[type="email"],
+.dark-theme input[type="password"] {
+    background-color: var(--bg-dark-lighter);
+    color: var(--text-light);
+    border: 1px solid rgba(200, 100, 100, 0.4);
+}
+
+.dark-theme input[type="text"]:focus,
+.dark-theme input[type="email"]:focus,
+.dark-theme input[type="password"]:focus {
+    outline: none;
+    border: 2px solid var(--accent-red);
+    box-shadow: 0 0 5px rgba(200, 0, 0, 0.3);
+}
+
+.light-theme input[type="text"],
+.light-theme input[type="email"],
+.light-theme input[type="password"] {
+    background-color: #f5f5f5;
+    color: var(--text-dark);
+    border: 1px solid rgba(102, 51, 153, 0.3);
+}
+
+.light-theme input[type="text"]:focus,
+.light-theme input[type="email"]:focus,
+.light-theme input[type="password"]:focus {
+    outline: none;
+    border: 2px solid var(--accent-purple);
+    box-shadow: 0 0 5px rgba(102, 51, 153, 0.3);
+}
+
+/* ==================== BOTÕES ====================*/
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dark-theme button {
+    background-color: var(--accent-purple-dark);
+    color: var(--text-light);
+    border: var(--border-thin) solid var(--accent-red);
+}
+
+.dark-theme button:hover {
+    background-color: var(--accent-purple);
+    box-shadow: 0 0 10px rgba(102, 51, 153, 0.5);
+}
+
+.light-theme button {
+    background-color: var(--accent-purple);
+    color: var(--text-light);
+    border: var(--border-thin) solid var(--accent-purple);
+}
+
+.light-theme button:hover {
+    background-color: var(--accent-purple-dark);
+    box-shadow: 0 0 10px rgba(102, 51, 153, 0.3);
+}
+
+/* ==================== PLANOS VIP ====================*/
+
+.vip-plan {
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.dark-theme .vip-plan {
+    border: 1px solid rgba(200, 100, 100, 0.3);
+    background-color: rgba(200, 0, 0, 0.03);
+}
+
+.dark-theme .vip-plan:hover {
+    background-color: rgba(200, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(200, 0, 0, 0.2);
+}
+
+.light-theme .vip-plan {
+    border: var(--border-thin) solid var(--accent-purple);
+    background-color: rgba(102, 51, 153, 0.05);
+}
+
+.light-theme .vip-plan:hover {
+    background-color: rgba(102, 51, 153, 0.15);
+    box-shadow: 0 0 15px rgba(102, 51, 153, 0.3);
+}
+
+.vip-plan h3 {
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.benefits {
+    list-style: none;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.benefits li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.1);
+}
+
+.benefits li:last-child {
+    border-bottom: none;
+}
+
+/* ==================== ANÚNCIO FIXO ====================*/
+
+#fixed-ad-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    text-align: center;
+    z-index: 999;
+    border-top: var(--border-thin) solid var(--accent-red);
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.dark-theme #fixed-ad-bottom {
+    background-color: var(--bg-dark-lighter);
+    color: var(--text-light);
+    border-top: var(--border-thin) solid var(--accent-red);
+}
+
+.light-theme #fixed-ad-bottom {
+    background-color: #f5f5f5;
+    color: var(--text-dark);
+    border-top: var(--border-thin) solid var(--accent-purple);
+}
+
+#fixed-ad-bottom p {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* ==================== AVISO ADBLOCK ====================*/
+
+#adblock-warning {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.dark-theme #adblock-warning {
+    background-color: rgba(200, 50, 50, 0.2);
+    border: var(--border-thin) solid rgba(200, 0, 0, 0.5);
+    color: var(--text-light);
+}
+
+.light-theme #adblock-warning {
+    background-color: rgba(102, 51, 153, 0.2);
+    border: var(--border-thin) solid var(--accent-purple);
+    color: var(--text-dark);
+}
+
+/* ==================== POPUP DE ANÚNCIO ====================*/
+
+#ad-popup {
+    animation: slideUp 0.3s ease-in;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 100px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+/* ==================== TOGGLE DE TEMA ====================*/
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 500;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.dark-theme #theme-toggle {
+    background-color: var(--bg-dark-lighter);
+    color: var(--text-light);
+    border: var(--border-thin) solid var(--accent-red);
+}
+
+.dark-theme #theme-toggle:hover {
+    background-color: var(--accent-purple-dark);
+}
+
+.light-theme #theme-toggle {
+    background-color: #e8e8e8;
+    color: var(--text-dark);
+    border: var(--border-thin) solid var(--accent-purple);
+}
+
+.light-theme #theme-toggle:hover {
+    background-color: #d0d0ff;
+}
+
+/* ==================== RESPONSIVO ====================*/
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    #role-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .role-box {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    #sidebar-menu {
+        width: 200px;
+    }
+    
+    .vip-plan {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    #role-selection-container h1 {
+        font-size: 24px;
+    }
+    
+    .role-box {
+        width: 100%;
+        height: 140px;
+    }
+    
+    #main-content h1 {
+        font-size: 24px;
+    }
+    
+    #theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}

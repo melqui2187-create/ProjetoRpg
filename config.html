@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - Gilda dos Aventureiros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <header id="header">
+        <div id="menu-hamburger" onclick="toggleMenu()">
+            <p>☰ Menu</p>
+        </div>
+        
+        <nav id="sidebar-menu" style="display: none;">
+            <ul>
+                <li><a href="main.html">Voltar ao Jogo</a></li>
+                <li><a href="paginicial.html" onclick="logout()">Desconectar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Configurações</h1>
+
+    <!-- SEÇÃO DE LOGIN -->
+    <div id="login-section">
+        <h2>Sua Conta</h2>
+        <div id="login-status"></div>
+
+        <!-- Formulário de Login -->
+        <form id="login-form">
+            <h3>Fazer Login</h3>
+            
+            <label>Email:</label>
+            <input type="email" id="email" placeholder="seu@email.com" required>
+            <br><br>
+
+            <label>Senha:</label>
+            <input type="password" id="password" placeholder="Sua senha" required>
+            <br><br>
+
+            <!-- reCAPTCHA -->
+            <div id="recaptcha-section">
+                <p>Verificação de Segurança</p>
+                <div id="g_id_onload" data-client_id="SEU_CLIENT_ID_GOOGLE" data-callback="handleCredentialResponse">
+                </div>
+                <div id="g_id_signin" data-type="standard"></div>
+            </div>
+            <br>
+
+            <button type="submit" id="login-btn">Entrar</button>
+            <button type="button" id="signup-btn" onclick="toggleSignup()">Criar Conta</button>
+        </form>
+
+        <!-- Formulário de Registro -->
+        <form id="signup-form" class="hidden">
+            <h3>Criar Nova Conta</h3>
+            
+            <label>Nome de Usuário:</label>
+            <input type="text" id="signup-username" placeholder="Seu nome" required>
+            <br><br>
+
+            <label>Email:</label>
+            <input type="email" id="signup-email" placeholder="seu@email.com" required>
+            <br><br>
+
+            <label>Senha:</label>
+            <input type="password" id="signup-password" placeholder="Crie uma senha" required>
+            <br><br>
+
+            <label>Confirmar Senha:</label>
+            <input type="password" id="confirm-password" placeholder="Confirme a senha" required>
+            <br><br>
+
+            <!-- reCAPTCHA para Registro -->
+            <div id="recaptcha-signup">
+                <p>Verificação de Segurança</p>
+                <div id="g_id_onload_signup" data-client_id="SEU_CLIENT_ID_GOOGLE" data-callback="handleCredentialResponse">
+                </div>
+                <div id="g_id_signin_signup" data-type="standard"></div>
+            </div>
+            <br>
+
+            <button type="submit" id="signup-submit">Registrar</button>
+            <button type="button" onclick="toggleSignup()">Voltar</button>
+        </form>
+
+        <!-- Login com Google -->
+        <div id="google-login-section">
+            <p>Ou faça login com:</p>
+            <button type="button" id="google-login-btn" onclick="loginWithGoogle()">Conectar com Google</button>
+        </div>
+    </div>
+
+    <!-- SEÇÃO VIP -->
+    <div id="vip-section">
+        <h2>Plano VIP</h2>
+        <p>Remova anúncios e desbloqueie benefícios exclusivos</p>
+
+        <!-- Plano Mensal VIP -->
+        <div id="vip-monthly" class="vip-plan">
+            <h3>VIP Mensal</h3>
+            <p class="price">R$ 9,99/mês</p>
+            <ul class="benefits">
+                <li>✓ Sem anúncios</li>
+                <li>✓ Espaço de armazenamento aumentado</li>
+                <li>✓ Personagem adicional</li>
+                <li>✓ Suporte prioritário</li>
+            </ul>
+            <button onclick="selectVipPlan('monthly')">Escolher Plano</button>
+        </div>
+
+        <!-- Plano Anual VIP -->
+        <div id="vip-annual" class="vip-plan">
+            <h3>VIP Anual</h3>
+            <p class="price">R$ 99,99/ano</p>
+            <ul class="benefits">
+                <li>✓ Sem anúncios</li>
+                <li>✓ Espaço de armazenamento aumentado</li>
+                <li>✓ 3 Personagens adicionais</li>
+                <li>✓ Suporte prioritário 24/7</li>
+                <li>✓ Eventos exclusivos VIP</li>
+                <li>✓ Desconto em itens especiais</li>
+            </ul>
+            <button onclick="selectVipPlan('annual')">Escolher Plano</button>
+        </div>
+    </div>
+
+    <!-- SEÇÃO DE DADOS PESSOAIS -->
+    <div id="user-settings">
+        <h2>Preferências</h2>
+        
+        <label>Notificações por email:</label>
+        <input type="checkbox" id="email-notifications" checked>
+        <br><br>
+
+        <label>Mostrar progresso público:</label>
+        <input type="checkbox" id="public-profile">
+        <br><br>
+
+        <button onclick="saveSettings()">Salvar Preferências</button>
+    </div>
+
+    <!-- AVISO ADBLOCK -->
+    <div id="adblock-warning" style="display: none;">
+        <p>Parece que você está usando um bloqueador de anúncios.</p>
+    </div>
+
+    <!-- Anúncio Fixo -->
+    <div id="fixed-ad-bottom">
+        <p>[ANÚNCIO FIXO - Espaço reservado para publicidade]</p>
+    </div>
+
+    <!-- Botão Toggle de Tema -->
+    <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+    <script src="script.js"></script>
+    <!-- Script do Google reCAPTCHA -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+</body>
+</html>

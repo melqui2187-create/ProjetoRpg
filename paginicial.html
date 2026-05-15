@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilda dos Aventureiros - Escolha seu Caminho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <div id="role-selection-container">
+        <h1>Bem-vindo à Gilda dos Aventureiros</h1>
+        
+        <p>Escolha seu tipo de participação:</p>
+        <p>Essa opção pode ser modificada no futuro</p>
+
+        <div id="role-options">
+            
+            <!-- Quadradinho Mestre -->
+            <div id="role-mestre" class="role-box" onclick="selectRole('mestre')">
+                <h3>Mestre</h3>
+                <p>Conduza a aventura e controle o destino dos jogadores</p>
+            </div>
+
+            <!-- Quadradinho Jogador -->
+            <div id="role-jogador" class="role-box" onclick="selectRole('jogador')">
+                <h3>Jogador</h3>
+                <p>Viva uma aventura épica sob comando de um mestre</p>
+            </div>
+
+            <!-- Quadradinho Os Dois -->
+            <div id="role-ambos" class="role-box" onclick="selectRole('ambos')">
+                <h3>Mestre e Jogador</h3>
+                <p>Alterne entre os dois papéis quando quiser</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Anúncio Fixo (não desaparece) -->
+    <div id="fixed-ad-bottom">
+        <p>[ANÚNCIO FIXO - Espaço reservado para publicidade]</p>
+    </div>
+
+    <!-- Botão Toggle de Tema -->
+    <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
